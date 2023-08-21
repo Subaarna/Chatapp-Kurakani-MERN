@@ -1,1 +1,61 @@
 const jwt = require("jsonwebtoken")
+
+const accessTokenDuration = 24*60*60; //duration of access token in seconds(24Hr)
+const refreshTokenDuration = 7*24*60*60;//duration of refresh token in seconds(7days)
+const secretKey = "secret-key";
+
+function GenerateAccessToken(userID){
+try{
+    //current date is being converted to milliseconds and converted into seconds
+    const expirationTime = Math.floor(Date.now /1000)+accessTokenDuration;
+    const claims = {
+        sub: userID,
+        role: "user",
+        exp: expirationTime,
+    };
+    const token = jwt.sign(claims, secretKey, {algorithm:"HS256"});
+    return token;
+}catch(error){
+    console.error("Couldn't generate accesstoken", error);
+    throw error;
+}
+}
+
+function GenerateRefreshToken(userID){
+    try{
+        const expirationTime = Math.floor(Date.now /1000)+refreshTokenDuration;
+        const claims = {
+            sub: userID,
+            exp: expirationTime,
+        };
+        const token = jwt.sign(claims, secretKey, {algorithm:"HS256"});
+        return token;
+    }catch(error){
+        console.error("Couldn't generate refresh token", error);
+        throw error;
+    }
+}
+
+
+function RefreshToken(refreshToken){
+    try{
+        const token = jwt.verify(refreshToken, secretKey);
+        if(!token){
+            throw new Error("Invalid token");
+        }
+        //get the userID from the refresh token
+        const userId = token.sub;
+        const newAccessToken = GenerateAccessToken(userID);
+        const newRefreshToken = GenerateRefreshToken(userID);
+        return{newAccessToken, newRefreshToken};
+    }catch(error){
+        console.error("Couldn't refresh token");
+        throw error;
+    }
+}
+
+module.exports= {
+    GenerateAccessToken,
+    GenerateRefreshToken,
+    RefreshToken
+}
