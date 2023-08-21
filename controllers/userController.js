@@ -1,3 +1,4 @@
+
 async function createUser(req, res) {
     try {
       const userCollection = await openCollection("users");
