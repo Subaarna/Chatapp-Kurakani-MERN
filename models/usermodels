@@ -5,7 +5,7 @@ class User{
         this._id = new ObjectId();
         this.userName = userName;
         this.email = email;
-        this.password = this.password 
+        this.password = password;
     }
 }
 
