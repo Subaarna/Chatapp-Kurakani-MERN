@@ -2,5 +2,49 @@
 body {
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    background-image: linear-gradient(to left, #29323c 0%, #485563 100%);
+    background: hsla(197, 100%, 5%, 1);
+
+    background: linear-gradient(315deg, hsla(197, 100%, 5%, 1) 46%, hsla(190, 100%, 12%, 1) 100%);
+    
+    background: -moz-linear-gradient(315deg, hsla(197, 100%, 5%, 1) 46%, hsla(190, 100%, 12%, 1) 100%);
+    
+    background: -webkit-linear-gradient(315deg, hsla(197, 100%, 5%, 1) 46%, hsla(190, 100%, 12%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#001219", endColorstr="#00343E", GradientType=1 );
 }
+.mb-1 {
+    background: hsla(0, 0%, 0%, 1);
+
+background: linear-gradient(315deg, hsla(0, 0%, 0%, 1) 74%, hsla(190, 100%, 12%, 1) 100%);
+
+background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 74%, hsla(190, 100%, 12%, 1) 100%);
+
+background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 74%, hsla(190, 100%, 12%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#00343E", GradientType=1 );
+}
+
+.Registerbtn {
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
+    margin: 2vw; /* Use viewport width as margin */
+    padding: 0.5vw 5vw; /* Use viewport width for padding */
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(65, 65, 65);            
+    box-shadow: 0 0 3px #5a5a5a;
+    border-radius: 4vw; /* Use viewport width for border-radius */
+    border: 0.2vw solid #ffffff; /* Use viewport width for border width */
+    display: block;
+    max-width: 300px; /* Set a maximum width */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto;
+}
+
+.Registerbtn:hover {
+    background-position: right center;
+    color: #000000;
+    text-decoration: none;
+}
+

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import "./Login.css";
+import "./pages/Register.jsx";
 //import "./pages/Register.css";
 import { BrowserRouter } from "react-router-dom";
 
